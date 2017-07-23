@@ -1,0 +1,36 @@
+.Card {
+	align-items: center;
+	background: #fff;
+	border: 1px solid #bbbbbb;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px;
+	padding: 10px;
+	box-shadow: 1px 1px 1px #bbbbbb;
+	perspective: 1000px;
+	transition: all 1s;
+	width: 250px;
+    min-height: 320px;
+}
+
+.Card:hover {
+    transform: scale(1.05);
+    box-shadow: 1px 1px 3px 1px #bbbbbb;
+}
+
+.Card--featured {
+    background: #e9f3df;
+    border-color: #c1e09d;
+    color: white;
+}
+
+.Card__name {
+	color: #000;
+	text-align: center
+}
+.Card__title {
+	color: #5a5a5a;
+	text-align: center
+}

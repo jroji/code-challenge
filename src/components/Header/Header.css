@@ -1,0 +1,33 @@
+.Header {
+	align-items: center;
+	background-color: var(--header-background-color, #75af81);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 70px;
+	width: 100%
+}
+.Header__title {
+	margin: 0
+}
+.Header__submenu {
+	background: var(--header-submenu-background, lightgray);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 20px;
+	width: 100%;
+	font-size: 12px;
+	box-sizing: border-box;
+}
+.Header__section {
+	margin: 0;
+	font-weight: 100;
+	text-transform: capitalize
+}
+.Header__link {
+	color: var(--header-link-color, #2f673a);
+	margin-left: 10px;
+	text-transform: capitalize;
+}

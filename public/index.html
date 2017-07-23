@@ -7,6 +7,34 @@
     <title>Billin Code Challenge</title>
   </head>
   <body>
+    <style>
+
+      @keyframes shake {
+        0% {
+          transform: rotate(-20deg);
+        }
+        50% {
+          transform: rotate(20deg);
+        }
+        100% {
+          transform: rotate(-20deg);
+        }
+      }
+      html, body {
+        margin: 0;
+        font-family: Arial;
+      }
+      a {
+        text-decoration: none;
+      }
+      main {
+        min-height: calc(100vh - 190px);
+        max-width: 992px;
+        padding: 30px;
+        margin: auto;
+        box-sizing: border-box;
+      }
+    </style>
     <div id="root"></div>
   </body>
 </html>

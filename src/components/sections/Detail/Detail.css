@@ -1,0 +1,35 @@
+.Detail__header {
+  display: flex;
+  justify-content: space-between
+}
+
+.Detail__trash {
+  width: var(--detail-trash-size, 40px);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.2s
+}
+.Detail__trash:hover img {
+  animation: shake 0.8s infinite;
+}
+
+.Detail__icon {
+  width: 100%
+}
+
+.Detail__content {
+  white-space: pre-line
+}
+
+.Detail__tag {
+  background: var(--detail-tag-background, #75AF81);
+  border-radius: 25px;
+  color: var(--detail-tag-color, #282828);
+  padding: 10px;
+  margin: 10px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 2
+}
