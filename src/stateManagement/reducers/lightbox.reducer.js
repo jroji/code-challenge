@@ -5,7 +5,7 @@ export default function lightbox(state = false, action) {
     /**
      * Toggle the lightbox
      */
-    case LightboxActions.TOGGLE:
+    case 'TOGGLE_LIGHTBOX':
       return !state;
     default:
       return state;

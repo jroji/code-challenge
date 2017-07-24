@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { ARTICLES_MUTATION } from '../../queries';
-import request from '../../request';
 import { connect } from 'react-redux';
-import ArticleActions from '../../stateManagement/actions/articles.actions';
 import LightboxActions from '../../stateManagement/actions/lightbox.actions';
+import { addArticle } from '../../stateManagement/thunks/Articles.thunks';
 
 import './CreateNew.css';
 
@@ -20,14 +18,8 @@ class CreateNew extends Component {
   componentWillMount() {
 
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.state = {...initialState};
+    this.state = { ...initialState };
 
-  }
-
-  newRequest(data) {
-    request(ARTICLES_MUTATION.Add(data)).then(response => {
-      this.props.addArticle(response.data.add);
-    });
   }
 
   handleInputChange(event) {
@@ -40,9 +32,9 @@ class CreateNew extends Component {
   }
 
   createNew(ev) {
-    if(this.refs.newForm.checkValidity()) {
+    if (this.refs.newForm.checkValidity()) {
       ev.preventDefault();
-      this.newRequest(this.state);
+      this.props.addArticle(this.state);
       this.props.toggleLightbox();
     } else {
       this.refs.newForm.className = 'Form validated';
@@ -101,8 +93,8 @@ class CreateNew extends Component {
 }
 
 let mapDispatchToProps = dispatch => ({
-  addArticle: (article) => { dispatch({ type: ArticleActions.ADD, payload: article }) },
-  toggleLightbox: () => { dispatch({ type: LightboxActions.TOGGLE }) }
+  addArticle: (article) => { dispatch(addArticle(article)); },
+  toggleLightbox: () => { dispatch(LightboxActions.TOGGLE()); }
 });
 
 export default connect(

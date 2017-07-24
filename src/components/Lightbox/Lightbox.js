@@ -18,10 +18,10 @@ class Lightbox extends Component {
   // Renders
   render() {
     return (
-      <div className={this.getClass()} onClick={ (ev) => { this.props.toggleLightbox() }}>
+      <div className={this.getClass()} onClick={(ev) => { this.props.toggleLightbox() }}>
         <div className="Dialog" onClick={(ev) => { ev.stopPropagation() }}>
-          <button className="Dialog__close" onClick={ (ev) => { this.props.toggleLightbox() }}>X</button>
-          { this.props.children }
+          <button className="Dialog__close" onClick={(ev) => { this.props.toggleLightbox() }}>X</button>
+          {this.props.children}
         </div>
       </div>
     );
@@ -29,7 +29,7 @@ class Lightbox extends Component {
 }
 
 let mapDispatchToProps = dispatch => ({
-  toggleLightbox: () => { dispatch({ type: LightboxActions.TOGGLE }) }
+  toggleLightbox: () => { dispatch(LightboxActions.TOGGLE()) }
 });
 
 let mapStateToProps = state => ({

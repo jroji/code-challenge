@@ -1,3 +1,7 @@
 export default {
-  TOGGLE: 'TOGGLE_LIGHTBOX'
+  TOGGLE: () => {
+    return {
+      type: 'TOGGLE_LIGHTBOX'
+    };
+  }
 }

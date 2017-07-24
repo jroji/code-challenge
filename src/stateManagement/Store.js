@@ -1,11 +1,13 @@
-import { createStore, combineReducers} from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
 import articles from './reducers/articles.reducer';
 import lightbox from './reducers/lightbox.reducer';
 
 const reducers = combineReducers({
 	articles,
-  lightbox
+	lightbox
 });
 
-const Store = createStore(reducers);
+const Store = createStore(reducers, { articles: [], lightbox: false }, applyMiddleware(thunk));
 export default Store;
