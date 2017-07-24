@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Card from './Card/Card';
-import ArticleActions from '../../../stateManagement/actions/articles.actions';
 import LightboxActions from '../../../stateManagement/actions/lightbox.actions';
 import { fetchArticles } from './../../../stateManagement/thunks/Articles.thunks';
 import './Home.css';
@@ -31,7 +30,7 @@ class Home extends Component {
 		return (
 			<section className="List">
 				{this.props.articles.map((el, index) => {
-					return <Card id={el.id} name={el.author} excerpt={el.excerpt}></Card>
+					return <Card key={index} id={el.id} name={el.author} excerpt={el.excerpt}></Card>
 				})}
 				<Card featured="true" onClick={(ev) => { this.props.toggleLightbox(); }} name="Create new"></Card>
 			</section>

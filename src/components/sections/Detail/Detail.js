@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { ARTICLES_QUERY, ARTICLES_MUTATION } from './../../../queries';
-import './Detail.css';
 import { connect } from 'react-redux';
 import request from './../../../request';
-import ArticleActions from './../../../stateManagement/actions/articles.actions';
+import { fetchArticles } from './../../../stateManagement/thunks/Articles.thunks';
+
+import './Detail.css';
 
 class Detail extends Component {
 	// definition
@@ -29,8 +30,7 @@ class Detail extends Component {
    */
 	delete() {
 		request(ARTICLES_MUTATION.Remove(this.props.id)).then(response => {
-			this.props.fetchArticles(response.data.remove);
-			window.location.replace('#/home');
+			this.props.fetchArticles();
 		});
 	}
 
@@ -44,7 +44,7 @@ class Detail extends Component {
 				</div>
 				<pre>{this.state.article.title}</pre>
 				<p className="Detail__content">{this.state.article.content}</p>
-				<div>{this.state.article.tags ? this.state.article.tags.map(el => <span className="Detail__tag">{el}</span>) : null}
+				<div>{this.state.article.tags ? this.state.article.tags.map((el, index) => <span key={index} className="Detail__tag">{el}</span>) : null}
 				</div>
 			</section>
 		);
@@ -52,7 +52,7 @@ class Detail extends Component {
 }
 
 let mapDispatchToProps = dispatch => ({
-	fetchArticles: (articles, callback) => dispatch({ type: ArticleActions.FETCH, payload: articles})
+	fetchArticles: (articles) => dispatch(fetchArticles(true))
 });
 
 export default connect(

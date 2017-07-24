@@ -1,4 +1,3 @@
-import LightboxActions from '../actions/lightbox.actions';
 
 export default function lightbox(state = false, action) {
   switch (action.type) {

@@ -23,6 +23,7 @@ class App extends Component {
   }
 
   /**
+   * Custom router instead of react-router to understand how it works.
    * Set the current section in state
    * @param {*} hash 
    */
